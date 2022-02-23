@@ -40,18 +40,11 @@ type GLTFResult = GLTF & {
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF("/car.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF("/assets/car.glb") as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      {/* <group
-        name="sun"
-        position={[100, 50, 100]}
-        rotation={[-Math.PI / 2, 0, 0]}
-      >
-        <pointLight intensity={10} />
-      </group> */}
-      <group rotation={[-1.5, 0, -0.5]}>
-        <group rotation={[Math.PI / 2, Math.PI / 12, 0]}>
+      <group rotation={[-1.5, 0.1, 0.7]}>
+        <group rotation={[Math.PI / 2, Math.PI / 12, 0]} scale={25}>
           <mesh
             geometry={nodes.polySurface118_Einfachdunkel_0.geometry}
             material={materials.Einfachdunkel}
@@ -99,4 +92,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("/car.glb");
+useGLTF.preload("/assets/car.glb");

@@ -7,6 +7,8 @@ import "./index.css";
 import Car from "./components/Car";
 import Noble from "./components/Noble";
 import { OrbitControls } from "@react-three/drei";
+import Camera from "./components/camera";
+import SkyBox from "./components/sanFrancisco";
 
 export default function App() {
   const nobleSelected = useAppSelector(nobleState);
@@ -19,24 +21,22 @@ export default function App() {
 
   return (
     <Canvas style={{ background: "#171717", height: "100vh" }}>
+      <Camera />
       <ambientLight intensity={1} />
-
+      <directionalLight color="red" position={[0, 0, 5]} />
       <Suspense fallback={null}>
         <Car
           children={carColor}
           onClick={() => dispatch(carSelect())}
-          position={[-10, -5, -20]}
-          // up={[20, 2, 0]}
-          // scale={[0, 0, 0]}
-          // rotation={[0, 0, 0]}
+          position={[-90, -100, 150]}
         />
         <Noble
           children={nobleColor}
           onClick={() => dispatch(nobleSelect())}
-          position={[0.5, -1.5, 2.5]}
+          position={[150, -120, -150]}
         />
       </Suspense>
-      <OrbitControls />
+      <SkyBox />
     </Canvas>
   );
 }
