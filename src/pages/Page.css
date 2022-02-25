@@ -1,0 +1,14 @@
+.value {
+  font-size: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 2px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.name {
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}

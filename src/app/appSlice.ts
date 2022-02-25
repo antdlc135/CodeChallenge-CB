@@ -1,5 +1,5 @@
 import { RootState } from "./store";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type Selection = "select" | "not select";
 
@@ -8,6 +8,7 @@ export interface SelectedState {
   carValue: boolean;
   nobleStatus: Selection;
   carStatus: Selection;
+  nobleName?: string;
 }
 
 const initialState: SelectedState = {
@@ -33,12 +34,17 @@ export const appSlice = createSlice({
       state.carValue = true;
       state.carStatus = "select";
     },
+
+    enterName: (state, action: PayloadAction<string>) => {
+      state.nobleName = action.payload;
+    },
   },
 });
 
-export const { nobleSelect, carSelect } = appSlice.actions;
+export const { nobleSelect, carSelect, enterName } = appSlice.actions;
 
 export const nobleState = (state: RootState) => state.selector.nobleValue;
 export const carState = (state: RootState) => state.selector.carValue;
+export const nobleName = (state: RootState) => state.selector.nobleName;
 
 export default appSlice.reducer;

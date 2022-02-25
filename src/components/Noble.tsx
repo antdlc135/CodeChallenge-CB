@@ -23,11 +23,12 @@ type GLTFResult = GLTF & {
 
 export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials } = useGLTF("/noble.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF("/assets/noble.glb") as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
-      <group rotation={[-1.5, 0, -0.7]}>
+      <group rotation={[-1.55, 0, 0.8]}>
         <mesh
+          scale={90}
           geometry={nodes.mesh_0.geometry}
           material={materials["Scene_-_Root"]}
           material-color={props.children}
@@ -37,4 +38,4 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("/noble.glb");
+useGLTF.preload("/assets/noble.glb");
