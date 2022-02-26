@@ -1,16 +1,13 @@
 import React, { Suspense, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import "./Page.css";
-import { nobleName } from "../app/appSlice";
 import PageName from "./PageName";
 import { Html } from "@react-three/drei";
 import { enterName } from "../app/appSlice";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { useAppDispatch } from "../app/hooks";
 
 export const NamePage: React.FC = () => {
-  const selectorName = useAppSelector(nobleName);
   const dispatch = useAppDispatch();
-  let Noble!: string;
   const [customName, setCustomName] = useState("Scrivi qui il nome!");
   const nameValue = customName;
   const styleOnName = nameValue
@@ -52,7 +49,7 @@ export const NamePage: React.FC = () => {
               type="button"
               id="button-addon1"
               onClick={() => {
-                dispatch(enterName(Noble));
+                dispatch(enterName(nameValue));
                 navigateTo();
               }}
             >
