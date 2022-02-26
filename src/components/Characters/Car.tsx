@@ -8,7 +8,7 @@ title: Vintage Car - Low Poly Style
 
 import * as THREE from "three";
 import React, { useRef } from "react";
-import { useGLTF, PerspectiveCamera } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 
 type GLTFResult = GLTF & {

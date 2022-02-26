@@ -1,7 +1,7 @@
 import { useThree } from "@react-three/fiber";
 import { CubeTextureLoader } from "three";
 
-const SkyBox = () => {
+const Scene = () => {
   const { scene } = useThree();
   const loader = new CubeTextureLoader();
   const texture = loader.load([
@@ -16,4 +16,4 @@ const SkyBox = () => {
   return null;
 };
 
-export default SkyBox;
+export default Scene;

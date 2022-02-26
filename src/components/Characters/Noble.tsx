@@ -7,10 +7,9 @@ title: Guest male 1 - Medieval Fantasy Challenge
 */
 
 import * as THREE from "three";
-import React, { Children, useRef } from "react";
+import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
-import { nobleSelect } from "../app/appSlice";
 
 type GLTFResult = GLTF & {
   nodes: {

@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import NamePage from "./pages/PageName";
-// import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Canvas } from "@react-three/fiber";
-import SkyBox from "./components/sanFrancisco";
 import Camera from "./components/camera";
+import Scene from "./components/Scene";
 
 ReactDOM.render(
   <Canvas style={{ background: "#171717", height: "100vh" }}>
@@ -19,16 +18,10 @@ ReactDOM.render(
     <directionalLight color="red" position={[0, 0, 5]} />
     <Provider store={store}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}>
-            {/*provisional redirect for opening*/}
-            <Route path="/homepage" element={<NamePage />} />
-            <Route path="/play" element={<App />} />
-          </Route>
-        </Routes>
+        <App />
       </BrowserRouter>
     </Provider>
-    <SkyBox />
+    <Scene />
   </Canvas>,
   document.getElementById("root")
 );

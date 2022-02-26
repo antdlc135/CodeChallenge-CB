@@ -1,32 +1,20 @@
-import React, { Suspense } from "react";
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import { useAppSelector, useAppDispatch } from "./app/hooks";
-import { nobleSelect, carSelect, nobleState, carState } from "./app/appSlice";
-import "./index.css";
-import Car from "./components/Car";
-import Noble from "./components/Noble";
+import PageName from "./pages/PageName";
+import Characters from "./components/Characters";
 
-export default function App() {
-  const nobleSelected = useAppSelector(nobleState);
-  const carSelected = useAppSelector(carState);
-  const nobleColor = nobleSelected ? "red" : "white";
-  const carColor = carSelected ? "red" : "#f9b60c";
-  const dispatch = useAppDispatch();
-  console.log(`nobleIsSelected?:${nobleSelected}`);
-  console.log(`carIsSelected?:${carSelected}`);
-
+const App: React.FC = () => {
+  let location = useLocation();
+  let state = location.state as { backgroundLocation?: Location };
   return (
-    <Suspense fallback={null}>
-      <Car
-        children={carColor}
-        onClick={() => dispatch(carSelect())}
-        position={[-90, -100, 150]}
-      />
-      <Noble
-        children={nobleColor}
-        onClick={() => dispatch(nobleSelect())}
-        position={[150, -120, -150]}
-      />
-    </Suspense>
+    <Routes location={state?.backgroundLocation || location}>
+      <Route path="/">
+        <Route index element={<PageName />} />
+        <Route path="/play" element={<Characters />} />
+      </Route>
+    </Routes>
   );
-}
+};
+
+export default App;
