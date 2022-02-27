@@ -6,6 +6,7 @@ import Characters from "./components/Characters";
 
 const App: React.FC = () => {
   let location = useLocation();
+
   let state = location.state as { backgroundLocation?: Location };
   return (
     <Routes location={state?.backgroundLocation || location}>
