@@ -6,4 +6,4 @@ Setup:
 
 - after cloning, run `npm i` and then `npm start` for both client and server side to start render mode with react-three-fiber: ThreeJs for React!
 
-<img src="SanFranciscoSkyBox_compr.gif"/>
+<img src="demo.gif"/>
