@@ -27,7 +27,7 @@ export default function Model({ ...props }: JSX.IntrinsicElements["group"]) {
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-1.55, 0, 0.8]}>
         <mesh
-          scale={90}
+          scale={115}
           geometry={nodes.mesh_0.geometry}
           material={materials["Scene_-_Root"]}
           material-color={props.children}
