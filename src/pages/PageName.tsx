@@ -8,10 +8,10 @@ import { useAppDispatch } from "../app/hooks";
 
 export const NamePage: React.FC = () => {
   const dispatch = useAppDispatch();
-  const [customName, setCustomName] = useState("Scrivi qui il nome!");
+  const [customName, setCustomName] = useState("Enter name here!");
   const nameValue = customName;
   const styleOnName = nameValue
-    ? { backgroundColor: "#0d6efd" }
+    ? { backgroundColor: "black" }
     : { backgroundColor: "transparent" };
 
   const navigateToPlay = useNavigate();
@@ -45,7 +45,8 @@ export const NamePage: React.FC = () => {
               }}
             />
             <button
-              className="btn btn-primary"
+              className="btn "
+              style={{ backgroundColor: "black", color: "white" }}
               type="button"
               id="button-addon1"
               onClick={() => {
@@ -53,7 +54,7 @@ export const NamePage: React.FC = () => {
                 navigateTo();
               }}
             >
-              Assegna nome!
+              Assign name!
             </button>
           </div>
         </div>

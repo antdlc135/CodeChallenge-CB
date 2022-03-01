@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import PageName from "./pages/PageName";
 import Characters from "./components/Characters";
+import Intro from "./pages/Intro";
 
 const App: React.FC = () => {
   let location = useLocation();
@@ -11,7 +12,8 @@ const App: React.FC = () => {
   return (
     <Routes location={state?.backgroundLocation || location}>
       <Route path="/">
-        <Route index element={<PageName />} />
+        <Route index element={<Intro />} />
+        <Route path="/pagename" element={<PageName />} />
         <Route path="/play" element={<Characters />} />
       </Route>
     </Routes>
